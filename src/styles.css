@@ -1,0 +1,28 @@
+.columnWrapper {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+.columnName{
+    flex: 4;
+}
+.columnType{
+    flex: 2;
+}
+.arrowsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+.arrow{
+    height: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.125rem;
+}
+
+.arrow:hover{
+    background-color: #444 ;
+}
