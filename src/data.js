@@ -20,6 +20,69 @@ export const CELLS = {
     minWidth: 88,
     maxHeight: 48,
   },
+  Country: {
+    name: "Country",
+    alignment: "LeftAligned",
+    key: "5bde9d2b4bd6c9b40d9741270b1e1538eb5ee898",
+    minWidth: 160,
+    maxHeight: 48,
+  },
+  Chip: {
+    name: "Chip",
+    alignment: "LeftAligned",
+    key: "38e9b51688e1523b6b148a5092645e4e39a61f22",
+    minWidth: 120,
+    maxHeight: 48,
+  },
+  Date: {
+    name: "Date",
+    alignment: "LeftAligned",
+    key: "bae134f6968b12c2471d1ad0f698ae449e27816c",
+    minWidth: 144,
+    maxHeight: 48,
+  },
+  LongText: {
+    name: "LongText",
+    alignment: "LeftAligned",
+    key: "d441a7f641c30346d00708e47f73994691b57d4e",
+    minWidth: 320,
+    maxHeight: 56,
+  },
+  Link: {
+    name: "Link",
+    alignment: "LeftAligned",
+    key: "fbcb28ce311d06624a56cbfc89b1bcf4c9174e28",
+    minWidth: 120,
+    maxHeight: 48,
+  },
+  Currency: {
+    name: "Currency",
+    alignment: "RightAligned",
+    key: "12f00ea7a3c13f94afc5ade5a8c455b485c7156d",
+    minWidth: 120,
+    maxHeight: 64,
+  },
+  Boolean: {
+    name: "Boolean",
+    alignment: "LeftAligned",
+    key: "9e501adb19aab3a38caeba717a303029da03721b",
+    minWidth: 80,
+    maxHeight: 48,
+  },
+  Thumbnail: {
+    name: "Thumbnail",
+    alignment: "LeftAligned",
+    key: "b176c3344db8aba08285d54f0fc5905ff09755ca",
+    minWidth: 72,
+    maxHeight: 64,
+  },
+  File: {
+    name: "File",
+    alignment: "LeftAligned",
+    key: "068671ee3f2a7a62a7a93645f01f2284ee1d0ffb",
+    minWidth: 160,
+    maxHeight: 48,
+  },
 }
 
 export const HEADER = {
@@ -40,6 +103,12 @@ export const MISC = {
   },
   Controls: {
     key: "271ed7d720b3eb732dda463279c250f33ff29732",
+  },
+  Checkbox: {
+    key: "97e5426720e343647604e4109ec9b6c9335e368b",
+  },
+  ActionCell: {
+    key: "0ff8dbf59661004a3eed290f18b0c8de4e4f9153",
   },
 }
 

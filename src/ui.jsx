@@ -19,6 +19,7 @@ import { _Column } from "./components/_Column"
 function Plugin() {
   const [name, setName] = useState()
   const [hasBatchActions, setHasBatchActions] = useState(false)
+  const [hasRowActions, setHasRowActions] = useState(false)
   const [hasDoubleLineHeader, setHasDoubleLineHeader] = useState(false)
 
   const [columns, setColumns] = useState([{ name: "", type: "Title" }])
@@ -26,6 +27,11 @@ function Plugin() {
   const handleBatchActionCheck = () => {
     setHasBatchActions(!hasBatchActions)
   }
+
+  const handleRowActionCheck = () => {
+    setHasRowActions(!hasRowActions)
+  }
+
   const handleDoubleLineHeaderCheck = () => {
     setHasDoubleLineHeader(!hasDoubleLineHeader)
   }
@@ -41,6 +47,7 @@ function Plugin() {
       emit("GENERATE", {
         tableName: name,
         hasBatchActions: hasBatchActions,
+        hasRowActions: hasRowActions,
         hasDoubleLineHeader: hasDoubleLineHeader,
         columns: columns,
       })
@@ -65,6 +72,15 @@ function Plugin() {
           >
             <Text>Has Batch Actions</Text>
           </Checkbox>
+
+          <Checkbox
+            value={hasRowActions}
+            onChange={handleRowActionCheck}
+          >
+            <Text>Has Row Actions</Text>
+          </Checkbox>
+        </Inline>
+        <Inline space='large'>
           <Checkbox
             value={hasDoubleLineHeader}
             onChange={handleDoubleLineHeaderCheck}

@@ -15,6 +15,8 @@ const DEFAULTS = {
   sectionHeight: 1280,
   rowNumber: 10,
   cornerRadius: 8,
+  checkboxCellWidth: 56,
+  actionCellWidth: 202,
 }
 
 const PROPERTY = {
@@ -39,6 +41,7 @@ const drawTable = async (data) => {
   } else {
     const sectionContainer = figma.currentPage.selection[0]
     const [columnWidths, totalWidth] = calculateColumnWidths(data)
+    console.log(`total width:  ${totalWidth}`)
     const isTitleFill = totalWidth < DEFAULTS.tableWidth
     const finalTableWidth = isTitleFill ? DEFAULTS.tableWidth : totalWidth
     const headerRow = await drawHeaderRow(
@@ -161,12 +164,34 @@ const calculateColumnWidths = (data) => {
     }
   })
 
+  if (data.hasBatchActions) {
+    sum = sum + DEFAULTS.checkboxCellWidth
+  }
+
+  if (data.hasRowActions) {
+    sum = sum + DEFAULTS.actionCellWidth
+  }
+
   return [arr, sum]
 }
 
 const drawHeaderRow = async (data, columnWidths, isFill, totalWidth) => {
   const headerRow = figma.createComponent()
   _initRow(headerRow, data, "Header Row")
+
+  if (data.hasBatchActions) {
+    const comp = await figma.importComponentByKeyAsync(HEADER["Checkbox"].key)
+    const header = comp.createInstance()
+
+    header.resize(
+      header.width,
+      data.hasDoubleLineHeader
+        ? DEFAULTS.doubleLineHeaderHeight
+        : DEFAULTS.singleLineHeaderHeight
+    )
+
+    headerRow.appendChild(header)
+  }
 
   let index = 0
   for await (const column of data.columns) {
@@ -195,8 +220,29 @@ const drawHeaderRow = async (data, columnWidths, isFill, totalWidth) => {
       ? DEFAULTS.doubleLineHeaderHeight
       : DEFAULTS.singleLineHeaderHeight
   )
+
   if (isFill) {
-    headerRow.children[0].layoutSizingHorizontal = "FILL"
+    headerRow.children[data.hasBatchActions ? 1 : 0].layoutSizingHorizontal =
+      "FILL"
+  }
+
+  if (data.hasRowActions) {
+    const comp = await figma.importComponentByKeyAsync(
+      HEADER["RightAligned"].key
+    )
+    const header = comp.createInstance()
+
+    header.resize(
+      DEFAULTS.actionCellWidth,
+      data.hasDoubleLineHeader
+        ? DEFAULTS.doubleLineHeaderHeight
+        : DEFAULTS.singleLineHeaderHeight
+    )
+    header.setProperties({
+      "Label#69072:33": "",
+    })
+
+    headerRow.appendChild(header)
   }
 
   return headerRow
@@ -219,6 +265,15 @@ const drawTableRow = async (data, columnWidths, isFill, totalWidth) => {
 
   const rowHeight = calculateMaxHeight(data)
 
+  if (data.hasBatchActions) {
+    const comp = await figma.importComponentByKeyAsync(MISC.Checkbox.key)
+    const cell = comp.createInstance()
+
+    cell.resize(cell.width, rowHeight)
+
+    tableRow.appendChild(cell)
+  }
+
   let index = 0
   for await (const column of data.columns) {
     const comp = await figma.importComponentByKeyAsync(
@@ -233,8 +288,19 @@ const drawTableRow = async (data, columnWidths, isFill, totalWidth) => {
   }
 
   tableRow.resize(totalWidth, rowHeight)
+
   if (isFill) {
-    tableRow.children[0].layoutSizingHorizontal = "FILL"
+    tableRow.children[data.hasBatchActions ? 1 : 0].layoutSizingHorizontal =
+      "FILL"
+  }
+
+  if (data.hasRowActions) {
+    const comp = await figma.importComponentByKeyAsync(MISC.ActionCell.key)
+    const cell = comp.createInstance()
+
+    cell.resize(cell.width, rowHeight)
+
+    tableRow.appendChild(cell)
   }
 
   return tableRow
