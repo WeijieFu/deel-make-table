@@ -58,7 +58,7 @@ function Plugin() {
   // useEffect(() => {
   //   console.log(columns)
   // }, [columns])
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const handleModalOpenClick = () => {
     setIsModalOpen(true)
   }
