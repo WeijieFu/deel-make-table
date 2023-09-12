@@ -24,7 +24,7 @@
 }
 
 .arrow:hover{
-    background-color: #444 ;
+    background-color: var(--figma-color-bg-hover) ;
 }
 
 .modal{
