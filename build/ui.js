@@ -491,10 +491,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/0003ed77-8791-478b-9347-9c936fd762f5/loading-indicator.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/13521dca-57fa-4f41-ba84-b3e6b0527f3a/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/0003ed77-8791-478b-9347-9c936fd762f5/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/13521dca-57fa-4f41-ba84-b3e6b0527f3a/loading-indicator.module.js"() {
       if (document.getElementById("20b665bc31") === null) {
         const element = document.createElement("style");
         element.id = "20b665bc31";
@@ -553,10 +553,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/a88e2009-fbb8-4a6b-ba1e-6a7b2e8d6824/button.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/3922a8f5-3d23-4263-ab5a-583afc79a1e5/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/a88e2009-fbb8-4a6b-ba1e-6a7b2e8d6824/button.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/3922a8f5-3d23-4263-ab5a-583afc79a1e5/button.module.js"() {
       if (document.getElementById("e9891d81f3") === null) {
         const element = document.createElement("style");
         element.id = "e9891d81f3";
@@ -739,10 +739,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/3d94f123-3bc9-49b5-a019-39d938aca11b/icon.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/475c4e13-5579-4ef8-bd00-9361a8d7e635/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/3d94f123-3bc9-49b5-a019-39d938aca11b/icon.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/475c4e13-5579-4ef8-bd00-9361a8d7e635/icon.module.js"() {
       if (document.getElementById("913b9a5a7c") === null) {
         const element = document.createElement("style");
         element.id = "913b9a5a7c";
@@ -787,10 +787,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/defc20c9-46a0-4b62-a311-a51ce3a619e2/checkbox.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/ff33f0de-b811-49af-a823-71f29bffe9ab/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/defc20c9-46a0-4b62-a311-a51ce3a619e2/checkbox.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/ff33f0de-b811-49af-a823-71f29bffe9ab/checkbox.module.js"() {
       if (document.getElementById("4e667d65b6") === null) {
         const element = document.createElement("style");
         element.id = "4e667d65b6";
@@ -921,10 +921,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/ad4d9e7f-12a3-4edd-8d28-b17e3bb2a9dd/menu.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/2395bb6d-7a3b-4e79-9810-0f2d3848a33f/menu.module.js
   var menu_module_default;
   var init_menu_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/ad4d9e7f-12a3-4edd-8d28-b17e3bb2a9dd/menu.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/2395bb6d-7a3b-4e79-9810-0f2d3848a33f/menu.module.js"() {
       if (document.getElementById("e44df879e4") === null) {
         const element = document.createElement("style");
         element.id = "e44df879e4";
@@ -1147,10 +1147,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/ca7f85ff-de1a-4046-a93c-955efbec30db/dropdown.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/fabae6c1-b07f-4106-bdee-7c80f066cd85/dropdown.module.js
   var dropdown_module_default;
   var init_dropdown_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/ca7f85ff-de1a-4046-a93c-955efbec30db/dropdown.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/fabae6c1-b07f-4106-bdee-7c80f066cd85/dropdown.module.js"() {
       if (document.getElementById("3f282a32bf") === null) {
         const element = document.createElement("style");
         element.id = "3f282a32bf";
@@ -1557,10 +1557,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/0e83a2c5-e5df-4c60-b527-a69eba873885/icon-button.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/e0c1d09d-d00a-4eb3-a29c-27eec0f9463b/icon-button.module.js
   var icon_button_module_default;
   var init_icon_button_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/0e83a2c5-e5df-4c60-b527-a69eba873885/icon-button.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/e0c1d09d-d00a-4eb3-a29c-27eec0f9463b/icon-button.module.js"() {
       if (document.getElementById("9a14e33da9") === null) {
         const element = document.createElement("style");
         element.id = "9a14e33da9";
@@ -1683,10 +1683,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/77b6f1ad-8600-43bf-87fc-fd57cb1d6e28/text.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/fd1ce73b-a6fc-4a72-9a59-bc7ce3d5f899/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/77b6f1ad-8600-43bf-87fc-fd57cb1d6e28/text.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/fd1ce73b-a6fc-4a72-9a59-bc7ce3d5f899/text.module.js"() {
       if (document.getElementById("3d4e9990fd") === null) {
         const element = document.createElement("style");
         element.id = "3d4e9990fd";
@@ -1742,10 +1742,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/3ccc169a-661e-443a-bcc2-2162427f7722/modal.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/a82acccb-1e7a-460d-ac1d-69311cff0a19/modal.module.js
   var modal_module_default;
   var init_modal_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/3ccc169a-661e-443a-bcc2-2162427f7722/modal.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/a82acccb-1e7a-460d-ac1d-69311cff0a19/modal.module.js"() {
       if (document.getElementById("406e36cbbe") === null) {
         const element = document.createElement("style");
         element.id = "406e36cbbe";
@@ -1990,10 +1990,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/5bbfdb2f-aa77-48e9-b5ea-60d00e07c6d5/stack.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/4527f518-6766-463a-9440-529f1cb3d55f/stack.module.js
   var stack_module_default;
   var init_stack_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/5bbfdb2f-aa77-48e9-b5ea-60d00e07c6d5/stack.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/4527f518-6766-463a-9440-529f1cb3d55f/stack.module.js"() {
       if (document.getElementById("522e374f63") === null) {
         const element = document.createElement("style");
         element.id = "522e374f63";
@@ -2215,10 +2215,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/448afce6-720b-40b6-936f-6cde2dcb1b55/textbox.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/28841642-d722-4c45-be08-c68b6af59a44/textbox.module.js
   var textbox_module_default;
   var init_textbox_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/448afce6-720b-40b6-936f-6cde2dcb1b55/textbox.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/28841642-d722-4c45-be08-c68b6af59a44/textbox.module.js"() {
       if (document.getElementById("33c6c7cb56") === null) {
         const element = document.createElement("style");
         element.id = "33c6c7cb56";
@@ -2367,10 +2367,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/12ed7006-2da0-4deb-aaee-a7bf1bb63083/link.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/8a350843-a50e-4ebe-9218-1952e14417bb/link.module.js
   var link_module_default;
   var init_link_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/12ed7006-2da0-4deb-aaee-a7bf1bb63083/link.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/8a350843-a50e-4ebe-9218-1952e14417bb/link.module.js"() {
       if (document.getElementById("7bfc1cc59a") === null) {
         const element = document.createElement("style");
         element.id = "7bfc1cc59a";
@@ -2415,10 +2415,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/0a915bfe-5214-4ba2-abad-bc5d735f3c67/container.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/5850e79d-f40a-4647-bd3a-d1af185e9f50/container.module.js
   var container_module_default;
   var init_container_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/0a915bfe-5214-4ba2-abad-bc5d735f3c67/container.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/5850e79d-f40a-4647-bd3a-d1af185e9f50/container.module.js"() {
       if (document.getElementById("f189ba2f73") === null) {
         const element = document.createElement("style");
         element.id = "f189ba2f73";
@@ -2457,10 +2457,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/9940a56d-197d-426f-a3ae-a63f03228f6a/inline.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/59d8691e-7fa1-4e4c-8bbd-3269b2054ec5/inline.module.js
   var inline_module_default;
   var init_inline_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/9940a56d-197d-426f-a3ae-a63f03228f6a/inline.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/59d8691e-7fa1-4e4c-8bbd-3269b2054ec5/inline.module.js"() {
       if (document.getElementById("c98db36f9e") === null) {
         const element = document.createElement("style");
         element.id = "c98db36f9e";
@@ -2520,10 +2520,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/7950fe2d-b569-4afb-9954-80befa4b2d50/vertical-space.module.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/314e03b9-4620-4f45-8718-c989c010fe0a/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/7950fe2d-b569-4afb-9954-80befa4b2d50/vertical-space.module.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/314e03b9-4620-4f45-8718-c989c010fe0a/vertical-space.module.js"() {
       if (document.getElementById("6afd3acdd8") === null) {
         const element = document.createElement("style");
         element.id = "6afd3acdd8";
@@ -2562,9 +2562,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/889dcbe0-6ee5-457d-ab04-fea9b79d5fdf/base.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/f43ce8c5-8b97-4ac2-b7a1-e597071018c2/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/889dcbe0-6ee5-457d-ab04-fea9b79d5fdf/base.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/f43ce8c5-8b97-4ac2-b7a1-e597071018c2/base.js"() {
       if (document.getElementById("e7c8c19cdd") === null) {
         const element = document.createElement("style");
         element.id = "e7c8c19cdd";
@@ -2714,10 +2714,10 @@ svg {
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/d1ca607c-b012-406c-a7ab-d83d27b2ef7f/styles.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/129865bc-7d01-4a67-a02c-1d78013a1bd8/styles.js
   var styles_default;
   var init_styles = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/d1ca607c-b012-406c-a7ab-d83d27b2ef7f/styles.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/129865bc-7d01-4a67-a02c-1d78013a1bd8/styles.js"() {
       if (document.getElementById("4b7ef371fa") === null) {
         const element = document.createElement("style");
         element.id = "4b7ef371fa";
@@ -2765,10 +2765,10 @@ svg {
     }
   });
 
-  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/56285b1c-30e1-4ebc-b29d-0895672d6431/styles.js
+  // ../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/28a10447-cd39-4d28-aafb-51456923167e/styles.js
   var styles_default2;
   var init_styles2 = __esm({
-    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/56285b1c-30e1-4ebc-b29d-0895672d6431/styles.js"() {
+    "../../../../../private/var/folders/q3/phj1q3716nq2zh1ttfzj02g80000gn/T/28a10447-cd39-4d28-aafb-51456923167e/styles.js"() {
       if (document.getElementById("4b7ef371fa") === null) {
         const element = document.createElement("style");
         element.id = "4b7ef371fa";
@@ -3126,7 +3126,7 @@ svg {
         onOverlayClick: handleModalClose,
         onEscapeKeyDown: handleModalClose
       },
-      /* @__PURE__ */ y("div", { class: styles_default.modal }, /* @__PURE__ */ y("div", null, "This plugin helps designers to scaffold basic structure of reusable Data Grid."), /* @__PURE__ */ y("div", null, /* @__PURE__ */ y("div", null, /* @__PURE__ */ y("strong", null, "How to use this plugin")), /* @__PURE__ */ y("p", null, "1. Create an empty ", /* @__PURE__ */ y("strong", null, "Section"), " in Figma where you want to put the components ."), /* @__PURE__ */ y("p", null, '2. Enter the name of the table, e.g. "People".'), /* @__PURE__ */ y("p", null, "3. Check if your table has Batch Actions, Row Actions or Double Line Header."), /* @__PURE__ */ y("p", null, "4. Add the column names and tpyes. You can Add New, Delete or Move Up/Down columns. ", /* @__PURE__ */ y("br", null), /* @__PURE__ */ y("br", null), 'Use "|" for line break in Double Line Header, e.g. "Contract|Start Date"'), /* @__PURE__ */ y("p", null, '5. Select the Section, and click "Make This Table" button.'), /* @__PURE__ */ y("p", null, "6. It can take a few seconds to import the components.")), /* @__PURE__ */ y("div", null, /* @__PURE__ */ y("strong", null, "Contact"), /* @__PURE__ */ y("p", null, "If you have any feedback or suggestions, please contact @Weijie Fu on Slack.")))
+      /* @__PURE__ */ y("div", { class: styles_default.modal }, /* @__PURE__ */ y("div", null, "This plugin helps designers to scaffold basic structure of reusable Data Grid."), /* @__PURE__ */ y("div", null, /* @__PURE__ */ y("div", null, /* @__PURE__ */ y("strong", null, "How to use this plugin")), /* @__PURE__ */ y("p", null, "1. Create an empty ", /* @__PURE__ */ y("strong", null, "Section"), " in Figma where you want to put the components ."), /* @__PURE__ */ y("p", null, '2. Enter the name of the table, e.g. "People".'), /* @__PURE__ */ y("p", null, "3. Check if your table has Batch Actions, Row Actions or Double Line Header."), /* @__PURE__ */ y("p", null, "4. Add the column names and types. You can Add New, Delete or Move Up/Down columns. ", /* @__PURE__ */ y("br", null), /* @__PURE__ */ y("br", null), 'Use "|" for line break in Double Line Header, e.g. "Contract|Start Date"'), /* @__PURE__ */ y("p", null, '5. Select the Section, and click "Make This Table" button.'), /* @__PURE__ */ y("p", null, "6. It can take a few seconds to import the components.")), /* @__PURE__ */ y("div", null, /* @__PURE__ */ y("strong", null, "Contact"), /* @__PURE__ */ y("p", null, "If you have any feedback or suggestions, please contact @Weijie Fu on Slack.")))
     ));
   }
   var ui_default;

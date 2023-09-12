@@ -160,7 +160,7 @@ function Plugin() {
               Line Header.
             </p>
             <p>
-              4. Add the column names and tpyes. You can Add New, Delete or Move
+              4. Add the column names and types. You can Add New, Delete or Move
               Up/Down columns. <br />
               <br />
               Use "|" for line break in Double Line Header, e.g. "Contract|Start
