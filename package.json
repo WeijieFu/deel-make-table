@@ -18,9 +18,14 @@
     "editorType": [
       "figma"
     ],
-    "id": "make-table",
+    "id": "1316092127050334332",
     "name": "Make Table",
     "main": "src/main.jsx",
-    "ui": "src/ui.jsx"
+    "ui": "src/ui.jsx",
+    "networkAccess": {
+      "allowedDomains": [
+        "none"
+      ]
+    }
   }
 }

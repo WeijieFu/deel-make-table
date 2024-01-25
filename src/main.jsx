@@ -41,7 +41,7 @@ const drawTable = async (data) => {
   } else {
     const sectionContainer = figma.currentPage.selection[0]
     const [columnWidths, totalWidth] = calculateColumnWidths(data)
-    console.log(`total width:  ${totalWidth}`)
+    // console.log(`total width:  ${totalWidth}`)
     const isTitleFill = totalWidth < DEFAULTS.tableWidth
     const finalTableWidth = isTitleFill ? DEFAULTS.tableWidth : totalWidth
     const headerRow = await drawHeaderRow(
@@ -82,10 +82,32 @@ const formatSection = async (
   table,
   totalWidth
 ) => {
+  const textVariable = await figma.variables.importVariableByKeyAsync(
+    STYLE.TextTitle.key
+  )
+  const pageVariable = await figma.variables.importVariableByKeyAsync(
+    STYLE.PageDefault.key
+  )
+
+  const sectionFill = [...sectionContainer.fills]
+  sectionFill[0] = figma.variables.setBoundVariableForPaint(
+    sectionFill[0],
+    "color",
+    pageVariable
+  )
+
+  const titleFill = [...sectionContainer.fills]
+  titleFill[0] = figma.variables.setBoundVariableForPaint(
+    titleFill[0],
+    "color",
+    textVariable
+  )
+
   sectionContainer.name = `${data.tableName} Table Local Components`
   sectionContainer.appendChild(headerRow)
   sectionContainer.appendChild(tableRow)
   sectionContainer.appendChild(table)
+  sectionContainer.fills = sectionFill
 
   sectionContainer.resizeWithoutConstraints(
     DEFAULTS.sectionOrigin * 2 + totalWidth,
@@ -100,6 +122,7 @@ const formatSection = async (
   line1.fontSize = 32
   line1.x = DEFAULTS.sectionOrigin
   line1.y = DEFAULTS.sectionOrigin
+  line1.fills = titleFill
 
   const line2 = figma.createText()
   sectionContainer.appendChild(line2)
@@ -111,6 +134,8 @@ const formatSection = async (
     DEFAULTS.sectionOrigin +
     DEFAULTS.doubleLineHeaderHeight * 2 +
     DEFAULTS.sectionGap * 6
+
+  line2.fills = titleFill
   headerRow.x = DEFAULTS.sectionOrigin
   headerRow.y = DEFAULTS.sectionOrigin * 3
 
@@ -313,11 +338,36 @@ const drawTableTemplate = async (data, headerRow, tableRow, totalWidth) => {
   table.layoutSizingVertical = "HUG"
   table.name = `Table`
 
-  const strokeStyle = await figma.importStyleByKeyAsync(STYLE.BoxBorder.key)
-  const fillStyle = await figma.importStyleByKeyAsync(STYLE.BoxFill.key)
+  // const strokeStyle = await figma.importStyleByKeyAsync(STYLE.BoxBorder.key)
+  // const fillStyle = await figma.importStyleByKeyAsync(STYLE.BoxFill.key)
 
-  table.strokeStyleId = strokeStyle.id
-  table.fillStyleId = fillStyle.id
+  // table.strokeStyleId = strokeStyle.id
+  // table.fillStyleId = fillStyle.id
+
+  const strokeVariable = await figma.variables.importVariableByKeyAsync(
+    STYLE.BoxBorder.key
+  )
+  const fillVariable = await figma.variables.importVariableByKeyAsync(
+    STYLE.BoxFill.key
+  )
+
+  const strokesArr = [...table.fills]
+  const fillsArr = [...table.fills]
+
+  strokesArr[0] = figma.variables.setBoundVariableForPaint(
+    strokesArr[0],
+    "color",
+    strokeVariable
+  )
+
+  fillsArr[0] = figma.variables.setBoundVariableForPaint(
+    fillsArr[0],
+    "color",
+    fillVariable
+  )
+
+  table.strokes = strokesArr
+  table.fills = fillsArr
 
   table.cornerRadius = DEFAULTS.cornerRadius
 
@@ -337,6 +387,8 @@ const drawTableTemplate = async (data, headerRow, tableRow, totalWidth) => {
   tableBody.layoutSizingHorizontal = "HUG"
   tableBody.layoutSizingVertical = "HUG"
   tableBody.name = "Body"
+
+  tableBody.fills = fillsArr
 
   for (let i = 0; i < DEFAULTS.rowNumber; i++) {
     const tableRowInstance = tableRow.createInstance()

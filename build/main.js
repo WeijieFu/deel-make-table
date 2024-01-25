@@ -238,12 +238,16 @@ var init_data = __esm({
     };
     STYLE = {
       BoxBorder: {
-        id: "S:d234d161392a67f5691e2e13defc3dade61047f9,1158:143",
-        key: "d234d161392a67f5691e2e13defc3dade61047f9"
+        key: "11c210af8b931eb7ab265e023b221f7897b9191e"
       },
       BoxFill: {
-        id: "S:6ec799d67b0fbbc06ed0281f8d8a25d0cc35ff74,1158:144",
-        key: "6ec799d67b0fbbc06ed0281f8d8a25d0cc35ff74"
+        key: "384d2d4de762b4e617eb655f58d05b23da999d85"
+      },
+      TextTitle: {
+        key: "5c53bea194470d9b3e5497741f30e7a9a852a3a8"
+      },
+      PageDefault: {
+        key: "9b740905da085f4c27fee614abb4336b9c711bf7"
       }
     };
   }
@@ -289,7 +293,6 @@ var init_main = __esm({
       } else {
         const sectionContainer = figma.currentPage.selection[0];
         const [columnWidths, totalWidth] = calculateColumnWidths(data);
-        console.log(`total width:  ${totalWidth}`);
         const isTitleFill = totalWidth < DEFAULTS.tableWidth;
         const finalTableWidth = isTitleFill ? DEFAULTS.tableWidth : totalWidth;
         const headerRow = await drawHeaderRow(
@@ -321,10 +324,29 @@ var init_main = __esm({
       }
     };
     formatSection = async (data, sectionContainer, headerRow, tableRow, table, totalWidth) => {
+      const textVariable = await figma.variables.importVariableByKeyAsync(
+        STYLE.TextTitle.key
+      );
+      const pageVariable = await figma.variables.importVariableByKeyAsync(
+        STYLE.PageDefault.key
+      );
+      const sectionFill = [...sectionContainer.fills];
+      sectionFill[0] = figma.variables.setBoundVariableForPaint(
+        sectionFill[0],
+        "color",
+        pageVariable
+      );
+      const titleFill = [...sectionContainer.fills];
+      titleFill[0] = figma.variables.setBoundVariableForPaint(
+        titleFill[0],
+        "color",
+        textVariable
+      );
       sectionContainer.name = `${data.tableName} Table Local Components`;
       sectionContainer.appendChild(headerRow);
       sectionContainer.appendChild(tableRow);
       sectionContainer.appendChild(table);
+      sectionContainer.fills = sectionFill;
       sectionContainer.resizeWithoutConstraints(
         DEFAULTS.sectionOrigin * 2 + totalWidth,
         DEFAULTS.sectionHeight
@@ -336,12 +358,14 @@ var init_main = __esm({
       line1.fontSize = 32;
       line1.x = DEFAULTS.sectionOrigin;
       line1.y = DEFAULTS.sectionOrigin;
+      line1.fills = titleFill;
       const line2 = figma.createText();
       sectionContainer.appendChild(line2);
       line2.characters = "Reuse composed table component in your design";
       line2.fontSize = 32;
       line2.x = DEFAULTS.sectionOrigin;
       line2.y = DEFAULTS.sectionOrigin + DEFAULTS.doubleLineHeaderHeight * 2 + DEFAULTS.sectionGap * 6;
+      line2.fills = titleFill;
       headerRow.x = DEFAULTS.sectionOrigin;
       headerRow.y = DEFAULTS.sectionOrigin * 3;
       tableRow.x = DEFAULTS.sectionOrigin;
@@ -506,10 +530,26 @@ var init_main = __esm({
       table.layoutSizingHorizontal = "HUG";
       table.layoutSizingVertical = "HUG";
       table.name = `Table`;
-      const strokeStyle = await figma.importStyleByKeyAsync(STYLE.BoxBorder.key);
-      const fillStyle = await figma.importStyleByKeyAsync(STYLE.BoxFill.key);
-      table.strokeStyleId = strokeStyle.id;
-      table.fillStyleId = fillStyle.id;
+      const strokeVariable = await figma.variables.importVariableByKeyAsync(
+        STYLE.BoxBorder.key
+      );
+      const fillVariable = await figma.variables.importVariableByKeyAsync(
+        STYLE.BoxFill.key
+      );
+      const strokesArr = [...table.fills];
+      const fillsArr = [...table.fills];
+      strokesArr[0] = figma.variables.setBoundVariableForPaint(
+        strokesArr[0],
+        "color",
+        strokeVariable
+      );
+      fillsArr[0] = figma.variables.setBoundVariableForPaint(
+        fillsArr[0],
+        "color",
+        fillVariable
+      );
+      table.strokes = strokesArr;
+      table.fills = fillsArr;
       table.cornerRadius = DEFAULTS.cornerRadius;
       const overhead = await figma.importComponentByKeyAsync(MISC.Overhead.key);
       const overheadInstance = overhead.createInstance();
@@ -523,6 +563,7 @@ var init_main = __esm({
       tableBody.layoutSizingHorizontal = "HUG";
       tableBody.layoutSizingVertical = "HUG";
       tableBody.name = "Body";
+      tableBody.fills = fillsArr;
       for (let i = 0; i < DEFAULTS.rowNumber; i++) {
         const tableRowInstance = tableRow.createInstance();
         tableBody.appendChild(tableRowInstance);

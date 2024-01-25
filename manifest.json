@@ -3,8 +3,13 @@
   "editorType": [
     "figma"
   ],
-  "id": "make-table",
+  "id": "1316092127050334332",
   "name": "Make Table",
   "main": "build/main.js",
-  "ui": "build/ui.js"
+  "ui": "build/ui.js",
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
 }

@@ -114,11 +114,15 @@ export const MISC = {
 
 export const STYLE = {
   BoxBorder: {
-    id: "S:d234d161392a67f5691e2e13defc3dade61047f9,1158:143",
-    key: "d234d161392a67f5691e2e13defc3dade61047f9",
+    key: "11c210af8b931eb7ab265e023b221f7897b9191e",
   },
   BoxFill: {
-    id: "S:6ec799d67b0fbbc06ed0281f8d8a25d0cc35ff74,1158:144",
-    key: "6ec799d67b0fbbc06ed0281f8d8a25d0cc35ff74",
+    key: "384d2d4de762b4e617eb655f58d05b23da999d85",
+  },
+  TextTitle: {
+    key: "5c53bea194470d9b3e5497741f30e7a9a852a3a8",
+  },
+  PageDefault: {
+    key: "9b740905da085f4c27fee614abb4336b9c711bf7",
   },
 }
