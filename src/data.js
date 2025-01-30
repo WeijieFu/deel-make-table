@@ -83,6 +83,34 @@ export const CELLS = {
     minWidth: 160,
     maxHeight: 48,
   },
+  Progress: {
+    name: "Progress",
+    alignment: "LeftAligned",
+    key: "8422c79d75eb648c32f59de5323a9bd6c151b849",
+    minWidth: 240,
+    maxHeight: 64,
+  },
+  "Editable / Select": {
+    name: "Editable / Select",
+    alignment: "LeftAligned",
+    key: "0e0a4a687d3881e4669d5c97b74930503c207a34",
+    minWidth: 200,
+    maxHeight: 48,
+  },
+  "Editable / Input": {
+    name: "Editable / Input",
+    alignment: "LeftAligned",
+    key: "431577b7d5818ac0688f8a6fee1877de91f3c0ca",
+    minWidth: 200,
+    maxHeight: 48,
+  },
+  "Editable / Boolean": {
+    name: "Editable / Boolean",
+    alignment: "LeftAligned",
+    key: "200456a2574bfb831acb597f107d36c0bf9fa2a6",
+    minWidth: 72,
+    maxHeight: 48,
+  },
 }
 
 export const HEADER = {
@@ -112,6 +140,14 @@ export const MISC = {
   },
 }
 
+export const EMPTY = {
+  NoContent: {
+    key: "33bc215501cdffb2842d60259415e895fc89fba2",
+  },
+  NoResult: {
+    key: "6a90bd4d3a3d67600fa8ae32fd142aa02d41370b",
+  },
+}
 export const STYLE = {
   BoxBorder: {
     key: "11c210af8b931eb7ab265e023b221f7897b9191e",

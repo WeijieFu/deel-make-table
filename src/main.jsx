@@ -1,8 +1,8 @@
 import { once, on, showUI } from "@create-figma-plugin/utilities"
-import { CELLS, HEADER, MISC, STYLE } from "./data"
+import { CELLS, EMPTY, HEADER, MISC, STYLE } from "./data"
 
 const DEFAULTS = {
-  tableWidth: 1200,
+  tableWidth: 1312,
   characterWidth: 6.5,
   sortingButtonWidth: 16,
   optionsButtonWidth: 16,
@@ -12,9 +12,9 @@ const DEFAULTS = {
   doubleLineHeaderHeight: 48,
   sectionOrigin: 32,
   sectionGap: 32,
-  sectionHeight: 1280,
+  sectionHeight: 2200,
   rowNumber: 10,
-  cornerRadius: 8,
+  cornerRadius: 16,
   checkboxCellWidth: 56,
   actionCellWidth: 202,
 }
@@ -63,12 +63,18 @@ const drawTable = async (data) => {
       finalTableWidth
     )
 
+    const noContent = await drawNoContentState(finalTableWidth)
+
+    const noResult = await drawNoResultState(headerRow, finalTableWidth)
+
     formatSection(
       data,
       sectionContainer,
       headerRow,
       tableRow,
       table,
+      noContent,
+      noResult,
       finalTableWidth
     )
   }
@@ -80,6 +86,8 @@ const formatSection = async (
   headerRow,
   tableRow,
   table,
+  noContent,
+  noResult,
   totalWidth
 ) => {
   const textVariable = await figma.variables.importVariableByKeyAsync(
@@ -107,10 +115,12 @@ const formatSection = async (
   sectionContainer.appendChild(headerRow)
   sectionContainer.appendChild(tableRow)
   sectionContainer.appendChild(table)
+  sectionContainer.appendChild(noContent)
+  sectionContainer.appendChild(noResult)
   sectionContainer.fills = sectionFill
 
   sectionContainer.resizeWithoutConstraints(
-    DEFAULTS.sectionOrigin * 2 + totalWidth,
+    DEFAULTS.sectionOrigin * 2 + totalWidth + 48,
     DEFAULTS.sectionHeight
   )
 
@@ -145,8 +155,21 @@ const formatSection = async (
     DEFAULTS.doubleLineHeaderHeight +
     DEFAULTS.sectionGap
 
-  table.x = DEFAULTS.sectionOrigin
-  table.y =
+  //Combines variants
+  const tableSet = figma.combineAsVariants(
+    [table, noContent, noResult],
+    sectionContainer
+  )
+  tableSet.name = `${data.tableName} Table`
+  tableSet.layoutMode = "VERTICAL"
+  tableSet.itemSpacing = 24
+  tableSet.layoutSizingHorizontal = "HUG"
+  tableSet.layoutSizingVertical = "HUG"
+  tableSet.verticalPadding = 24
+  tableSet.horizontalPadding = 24
+
+  tableSet.x = DEFAULTS.sectionOrigin
+  tableSet.y =
     DEFAULTS.sectionOrigin +
     DEFAULTS.doubleLineHeaderHeight * 2 +
     DEFAULTS.sectionGap * 8
@@ -406,7 +429,8 @@ const drawTableTemplate = async (data, headerRow, tableRow, totalWidth) => {
   tableTemplate.layoutSizingHorizontal = "FIXED"
   tableTemplate.resize(totalWidth, 100)
   tableTemplate.layoutSizingVertical = "HUG"
-  tableTemplate.name = `${data.tableName} Table`
+  // tableTemplate.name = `${data.tableName} Table`
+  tableTemplate.name = "State = Initial"
   tableTemplate.itemSpacing = 8
 
   const controls = await figma.importComponentByKeyAsync(MISC.Controls.key)
@@ -419,6 +443,64 @@ const drawTableTemplate = async (data, headerRow, tableRow, totalWidth) => {
   table.layoutSizingHorizontal = "FILL"
 
   return tableTemplate
+}
+
+const drawNoContentState = async (totalWidth) => {
+  const noContentState = figma.createComponent()
+  noContentState.layoutMode = "VERTICAL"
+  noContentState.layoutSizingHorizontal = "FIXED"
+  noContentState.resize(totalWidth, 100)
+  noContentState.layoutSizingVertical = "HUG"
+  noContentState.name = "State = No Content"
+  noContentState.itemSpacing = 0
+
+  const noContentComponent = await figma.importComponentByKeyAsync(
+    EMPTY.NoContent.key
+  )
+  const noContentInstance = noContentComponent.createInstance()
+
+  noContentState.appendChild(noContentInstance)
+  noContentInstance.layoutSizingHorizontal = "FILL"
+
+  return noContentState
+}
+
+const drawNoResultState = async (headerRow, totalWidth) => {
+  const noResultState = figma.createComponent()
+  noResultState.layoutMode = "VERTICAL"
+  noResultState.layoutSizingHorizontal = "FIXED"
+  noResultState.resize(totalWidth, 100)
+  noResultState.layoutSizingVertical = "HUG"
+  noResultState.name = "State = No Result"
+  noResultState.itemSpacing = 8
+
+  const controls = await figma.importComponentByKeyAsync(MISC.Controls.key)
+  const controlsInstance = controls.createInstance()
+
+  const searchField = controlsInstance.findOne((node) => {
+    return node.name == "_Search Field / Round"
+  })
+
+  searchField.setProperties({ Filled: "True" })
+
+  noResultState.appendChild(controlsInstance)
+  controlsInstance.layoutSizingHorizontal = "FILL"
+
+  const noResultComponent = await figma.importComponentByKeyAsync(
+    EMPTY.NoResult.key
+  )
+  const noResultInstance = noResultComponent.createInstance()
+
+  const oldHeaderRow = noResultInstance.findOne((node) => {
+    return node.name == "Data Grid Header Row [Template] / Desktop"
+  })
+  oldHeaderRow.layoutSizingHorizontal = "FILL"
+  oldHeaderRow.swapComponent(headerRow)
+
+  noResultState.appendChild(noResultInstance)
+  noResultInstance.layoutSizingHorizontal = "FILL"
+
+  return noResultState
 }
 
 //UTILS

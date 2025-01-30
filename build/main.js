@@ -122,7 +122,7 @@ var init_lib = __esm({
 });
 
 // src/data.js
-var CELLS, HEADER, MISC, STYLE;
+var CELLS, HEADER, MISC, EMPTY, STYLE;
 var init_data = __esm({
   "src/data.js"() {
     CELLS = {
@@ -209,6 +209,34 @@ var init_data = __esm({
         key: "068671ee3f2a7a62a7a93645f01f2284ee1d0ffb",
         minWidth: 160,
         maxHeight: 48
+      },
+      Progress: {
+        name: "Progress",
+        alignment: "LeftAligned",
+        key: "8422c79d75eb648c32f59de5323a9bd6c151b849",
+        minWidth: 240,
+        maxHeight: 64
+      },
+      "Editable / Select": {
+        name: "Editable / Select",
+        alignment: "LeftAligned",
+        key: "0e0a4a687d3881e4669d5c97b74930503c207a34",
+        minWidth: 200,
+        maxHeight: 48
+      },
+      "Editable / Input": {
+        name: "Editable / Input",
+        alignment: "LeftAligned",
+        key: "431577b7d5818ac0688f8a6fee1877de91f3c0ca",
+        minWidth: 200,
+        maxHeight: 48
+      },
+      "Editable / Boolean": {
+        name: "Editable / Boolean",
+        alignment: "LeftAligned",
+        key: "200456a2574bfb831acb597f107d36c0bf9fa2a6",
+        minWidth: 72,
+        maxHeight: 48
       }
     };
     HEADER = {
@@ -234,6 +262,14 @@ var init_data = __esm({
       },
       ActionCell: {
         key: "0ff8dbf59661004a3eed290f18b0c8de4e4f9153"
+      }
+    };
+    EMPTY = {
+      NoContent: {
+        key: "33bc215501cdffb2842d60259415e895fc89fba2"
+      },
+      NoResult: {
+        key: "6a90bd4d3a3d67600fa8ae32fd142aa02d41370b"
       }
     };
     STYLE = {
@@ -265,13 +301,13 @@ function main_default() {
     width: 360
   });
 }
-var DEFAULTS, drawTable, formatSection, calculateColumnWidths, drawHeaderRow, drawTableRow, drawTableTemplate, _initRow;
+var DEFAULTS, drawTable, formatSection, calculateColumnWidths, drawHeaderRow, drawTableRow, drawTableTemplate, drawNoContentState, drawNoResultState, _initRow;
 var init_main = __esm({
   "src/main.jsx"() {
     init_lib();
     init_data();
     DEFAULTS = {
-      tableWidth: 1200,
+      tableWidth: 1312,
       characterWidth: 6.5,
       sortingButtonWidth: 16,
       optionsButtonWidth: 16,
@@ -281,9 +317,9 @@ var init_main = __esm({
       doubleLineHeaderHeight: 48,
       sectionOrigin: 32,
       sectionGap: 32,
-      sectionHeight: 1280,
+      sectionHeight: 2200,
       rowNumber: 10,
-      cornerRadius: 8,
+      cornerRadius: 16,
       checkboxCellWidth: 56,
       actionCellWidth: 202
     };
@@ -313,17 +349,21 @@ var init_main = __esm({
           tableRow,
           finalTableWidth
         );
+        const noContent = await drawNoContentState(finalTableWidth);
+        const noResult = await drawNoResultState(headerRow, finalTableWidth);
         formatSection(
           data,
           sectionContainer,
           headerRow,
           tableRow,
           table,
+          noContent,
+          noResult,
           finalTableWidth
         );
       }
     };
-    formatSection = async (data, sectionContainer, headerRow, tableRow, table, totalWidth) => {
+    formatSection = async (data, sectionContainer, headerRow, tableRow, table, noContent, noResult, totalWidth) => {
       const textVariable = await figma.variables.importVariableByKeyAsync(
         STYLE.TextTitle.key
       );
@@ -346,9 +386,11 @@ var init_main = __esm({
       sectionContainer.appendChild(headerRow);
       sectionContainer.appendChild(tableRow);
       sectionContainer.appendChild(table);
+      sectionContainer.appendChild(noContent);
+      sectionContainer.appendChild(noResult);
       sectionContainer.fills = sectionFill;
       sectionContainer.resizeWithoutConstraints(
-        DEFAULTS.sectionOrigin * 2 + totalWidth,
+        DEFAULTS.sectionOrigin * 2 + totalWidth + 48,
         DEFAULTS.sectionHeight
       );
       const line1 = figma.createText();
@@ -370,8 +412,19 @@ var init_main = __esm({
       headerRow.y = DEFAULTS.sectionOrigin * 3;
       tableRow.x = DEFAULTS.sectionOrigin;
       tableRow.y = DEFAULTS.sectionOrigin * 3 + DEFAULTS.doubleLineHeaderHeight + DEFAULTS.sectionGap;
-      table.x = DEFAULTS.sectionOrigin;
-      table.y = DEFAULTS.sectionOrigin + DEFAULTS.doubleLineHeaderHeight * 2 + DEFAULTS.sectionGap * 8;
+      const tableSet = figma.combineAsVariants(
+        [table, noContent, noResult],
+        sectionContainer
+      );
+      tableSet.name = `${data.tableName} Table`;
+      tableSet.layoutMode = "VERTICAL";
+      tableSet.itemSpacing = 24;
+      tableSet.layoutSizingHorizontal = "HUG";
+      tableSet.layoutSizingVertical = "HUG";
+      tableSet.verticalPadding = 24;
+      tableSet.horizontalPadding = 24;
+      tableSet.x = DEFAULTS.sectionOrigin;
+      tableSet.y = DEFAULTS.sectionOrigin + DEFAULTS.doubleLineHeaderHeight * 2 + DEFAULTS.sectionGap * 8;
     };
     calculateColumnWidths = (data) => {
       let sum = 0;
@@ -576,7 +629,7 @@ var init_main = __esm({
       tableTemplate.layoutSizingHorizontal = "FIXED";
       tableTemplate.resize(totalWidth, 100);
       tableTemplate.layoutSizingVertical = "HUG";
-      tableTemplate.name = `${data.tableName} Table`;
+      tableTemplate.name = "State = Initial";
       tableTemplate.itemSpacing = 8;
       const controls = await figma.importComponentByKeyAsync(MISC.Controls.key);
       const controlsInstance = controls.createInstance();
@@ -585,6 +638,51 @@ var init_main = __esm({
       tableTemplate.appendChild(table);
       table.layoutSizingHorizontal = "FILL";
       return tableTemplate;
+    };
+    drawNoContentState = async (totalWidth) => {
+      const noContentState = figma.createComponent();
+      noContentState.layoutMode = "VERTICAL";
+      noContentState.layoutSizingHorizontal = "FIXED";
+      noContentState.resize(totalWidth, 100);
+      noContentState.layoutSizingVertical = "HUG";
+      noContentState.name = "State = No Content";
+      noContentState.itemSpacing = 0;
+      const noContentComponent = await figma.importComponentByKeyAsync(
+        EMPTY.NoContent.key
+      );
+      const noContentInstance = noContentComponent.createInstance();
+      noContentState.appendChild(noContentInstance);
+      noContentInstance.layoutSizingHorizontal = "FILL";
+      return noContentState;
+    };
+    drawNoResultState = async (headerRow, totalWidth) => {
+      const noResultState = figma.createComponent();
+      noResultState.layoutMode = "VERTICAL";
+      noResultState.layoutSizingHorizontal = "FIXED";
+      noResultState.resize(totalWidth, 100);
+      noResultState.layoutSizingVertical = "HUG";
+      noResultState.name = "State = No Result";
+      noResultState.itemSpacing = 8;
+      const controls = await figma.importComponentByKeyAsync(MISC.Controls.key);
+      const controlsInstance = controls.createInstance();
+      const searchField = controlsInstance.findOne((node) => {
+        return node.name == "_Search Field / Round";
+      });
+      searchField.setProperties({ Filled: "True" });
+      noResultState.appendChild(controlsInstance);
+      controlsInstance.layoutSizingHorizontal = "FILL";
+      const noResultComponent = await figma.importComponentByKeyAsync(
+        EMPTY.NoResult.key
+      );
+      const noResultInstance = noResultComponent.createInstance();
+      const oldHeaderRow = noResultInstance.findOne((node) => {
+        return node.name == "Data Grid Header Row [Template] / Desktop";
+      });
+      oldHeaderRow.layoutSizingHorizontal = "FILL";
+      oldHeaderRow.swapComponent(headerRow);
+      noResultState.appendChild(noResultInstance);
+      noResultInstance.layoutSizingHorizontal = "FILL";
+      return noResultState;
     };
     _initRow = (row, data, type) => {
       row.layoutMode = "HORIZONTAL";
